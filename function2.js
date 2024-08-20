@@ -1,20 +1,24 @@
-function bankAccount(deposits, withdrawals) {
-    let currentTotal = 0;
-
-        currentTotal = currentTotal + deposits;
-    
-        if (currentTotal >= 0){
-        currentTotal = currentTotal - withdrawals;
-    }
-    if( currentTotal < 0){
-        return "Sorry insufficient funds to withdraw!";
+function bankAccountDeposit(deposits, account) {
+        account = account + deposits;
+        return account
+}
+function bankAccountWithdraw(withdraw, account) {
+    if (account < withdraw) {
+        console.log("Insufficient funds!")
     } else{
-        return currentTotal;
+        account = account - withdraw;
+        return account
     }
 }
+function bankAccountTotal(account) {
+    console.log('Total in bank account: $', account);
+}
+
 
 let deposits = 5000;
-let withdrawals = 2000;
+let withdraw = 1000;
+let account = 0;
 
-let total = bankAccount(deposits, withdrawals);
-console.log('Total in bank account: $', total);
+account = bankAccountDeposit(deposits, account);
+account = bankAccountWithdraw(withdraw, account);
+bankAccountTotal(account)
